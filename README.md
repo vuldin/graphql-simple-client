@@ -10,3 +10,7 @@ A simple graphql client with multiple tags that add in various functionality.
 - pagination
 - filter
 - sort
+
+## server
+
+See https://github.com/vuldin/graphql-simple-server.git
