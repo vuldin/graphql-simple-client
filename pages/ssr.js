@@ -4,15 +4,15 @@ import InfoBox from '../components/InfoBox'
 import BookList, { ALL_BOOKS_QUERY } from '../components/BookList'
 import { addApolloState, initializeApollo } from '../lib/apolloClient'
 
-const IndexPage = () => (
+const SSRPage = () => (
   <App>
     <Header />
-    <InfoBox>ℹ️ This page shows how to use SSG with Apollo.</InfoBox>
+    <InfoBox>ℹ️ This page shows how to use SSR with Apollo.</InfoBox>
     <BookList />
   </App>
 )
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const apolloClient = initializeApollo()
 
   await apolloClient.query({
@@ -21,8 +21,7 @@ export async function getStaticProps() {
 
   return addApolloState(apolloClient, {
     props: {},
-    revalidate: 1,
   })
 }
 
-export default IndexPage
+export default SSRPage
